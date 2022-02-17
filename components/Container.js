@@ -15,6 +15,11 @@ const Container = ({children}) => {
         light: 'gray.600',
         dark: 'gray.300'
     }
+    const color = {
+        light: 'black',
+        dark: 'white'
+
+    }
 
     const StickNav = styled(Flex)`
         position: sticky,
@@ -27,7 +32,21 @@ const Container = ({children}) => {
 
     return(
         <>
-            <StickNav>
+            <StickNav
+                flexDirection="row"
+                justifyContent="space-between"
+                alignItems="center"
+                maxWidth="800px"
+                minWidth="356px"
+                width="100%"
+                bg={bgColor[colorMode]}
+                as="nav"
+                px={[2, 6, 6]}
+                py={2}
+                mt={8}
+                mb={[0, 0, 8]}
+                mx="auto"
+            >
 
                 <Box>
                     <NextLink href="/" passHref>
@@ -39,7 +58,17 @@ const Container = ({children}) => {
                 </Box>
                 <DarkModeSwitch />
             </StickNav>
-            
+            <Flex
+                as="main"
+                justifyContent="center"
+                flexDirection="column"
+                bg={bgColor[colorMode]}
+                color={color[colorMode]}
+                px={[0, 4, 4]}
+                mt={[4, 8, 8]}
+            >
+                {children}
+            </Flex>
         </>
     )
 }
