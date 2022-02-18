@@ -10,6 +10,8 @@ import {
 } from "@chakra-ui/react";
 
 import Container from "../components/Container";
+import {getAllFilesFrontMatter} from "../lib/mdx"
+import BlogPost from '../components/BlogPost'
 
 export default function Blog({ posts }) {
   return (
@@ -35,6 +37,8 @@ export default function Blog({ posts }) {
                 <Heading letterSpacing="tight" mb={2} as="h1" size="2xl">
                     Blog
                 </Heading>
+
+                {posts.map((frontMatter) => <BlogPost key={frontMatter.title} {...frontMatter} />)}
             </Flex>
         </Stack>
       </Container>
@@ -43,7 +47,7 @@ export default function Blog({ posts }) {
 }
 
 export async function getStaticProps() {
-  // TODO fetch blog posts
+  const posts = await getAllFilesFrontMatter('blog')
 
   return { props: { props } };
 }
