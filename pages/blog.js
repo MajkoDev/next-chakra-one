@@ -13,6 +13,8 @@ import Container from "../components/Container";
 import {getAllFilesFrontMatter} from "../lib/mdx"
 import BlogPost from '../components/BlogPost'
 
+import {SearchIcon} from '@chakra-ui/react'
+
 export default function Blog({ posts }) {
   return (
     <>
@@ -49,5 +51,5 @@ export default function Blog({ posts }) {
 export async function getStaticProps() {
   const posts = await getAllFilesFrontMatter('blog')
 
-  return { props: { props } };
+  return { props: { posts } }
 }

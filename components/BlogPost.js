@@ -1,6 +1,6 @@
 import NextLink from "next/link";
 import { useColorMode, Heading, Text, Flex, Box, Link } from "@chakra-ui/react";
-import { parseISO, format } from "data-fns";
+import { parseISO, format } from 'date-fns'
 
 const BlogPost = ({ title, publishedAt, summary, slug }) => {
   const { colorMode } = useColorMode();
