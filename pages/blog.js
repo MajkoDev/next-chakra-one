@@ -18,12 +18,12 @@ import { SearchIcon } from '@chakra-ui/icons'
 export default function Blog({ posts }) {
     const [searchValue, setSearchValue] = useState('')
 
-    const filteredBlogPosts = posts
-        .sort(
-            (a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
-        )
-        .filter((frontMatter) =>
-            frontMatter.title.toLowerCase().includes(searchValue.toLowerCase()))
+    // const filteredBlogPosts = posts
+    //     .sort(
+    //         (a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
+    //     )
+    //     .filter((frontMatter) =>
+    //         frontMatter.title.toLowerCase().includes(searchValue.toLowerCase()))
 
             
     return (
@@ -60,8 +60,8 @@ export default function Blog({ posts }) {
                                 <SearchIcon color="gray.300" />
                             </InputRightElement>
                         </InputGroup>
-                        {!filteredBlogPosts.length && 'No posts found :('}
-                        {filteredBlogPosts.map((frontMatter) => <BlogPost key={frontMatter.title} {...frontMatter} />)}
+                        {/* {!filteredBlogPosts.length && 'No posts found :('}
+                        {filteredBlogPosts.map((frontMatter) => <BlogPost key={frontMatter.title} {...frontMatter} />)} */}
                     </Flex>
                 </Stack>
             </Container>
